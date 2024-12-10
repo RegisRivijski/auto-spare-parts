@@ -1,0 +1,17 @@
+version: "3.3"
+
+services:
+  # Git repository: https://github.com/RegisRivijski/auto-spare-parts
+  auto-spare-parts:
+    container_name: "auto-spare-parts"
+    image: "auto-spare-parts"
+    env_file:
+      - .env
+    ports:
+      - '3040:80'
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./includes:/var/www/html/includes
+      - ./pages:/var/www/html/pages
